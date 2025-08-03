@@ -6,10 +6,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('admin/index');
-});
+// Route::get('/', function () {
+//     return view('admin/index');
+// });
 
 Route::get('/authenticate/login', function () {
     return view('admin/auth/login');
+});
+
+Route::get('/admin/dashboard', function(){
+    return view("admin/index");
 });
