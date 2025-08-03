@@ -17,15 +17,13 @@ $(document).on("submit", "#frmLogin", function(e){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
         success: function(response){
-            if(response.data != null){
-                toastr.success('<h5>Notification</h5>'+response.message);
-                setTimeout(function(){
-                    window.location.href = "/admin/dashboard";
-                }, 1000);
-            }
-            else{
-                toastr.error('<h5>Notification</h5>'+response.message);
-            }
+            toastr.success('<h5>Notification</h5>'+response.message);
+            setTimeout(function(){
+                window.location.href = "/admin/dashboard";
+            }, 1000);
         },
+        error: function(response){
+            toastr.error('<h5>Notification</h5>'+response.responseJSON.message);
+        }
     });
 });
