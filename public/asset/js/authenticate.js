@@ -13,9 +13,9 @@ $(document).on("submit", "#frmLogin", function(e){
         method: "POST",
         contentType: 'application/json',
         data: JSON.stringify(formData),
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
+        // headers: {
+        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        // },
         success: function(response){
             toastr.success('<h5>Notification</h5>'+response.message);
             setTimeout(function(){
